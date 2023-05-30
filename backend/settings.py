@@ -197,8 +197,6 @@ USE_TZ = True
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 STATIC_URL = '/static/'
 
-    BASE_DIR / 'out/_next'
-] 
 CORS_ALLOW_ALL_ORIGINS =True
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
