@@ -195,7 +195,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+STATIC_URL = '/static/'
 
+    BASE_DIR / 'out/_next'
+] 
 CORS_ALLOW_ALL_ORIGINS =True
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
