@@ -6,7 +6,7 @@ from rest_framework_simplejwt.views import TokenObtainPairView
 from .models import *
 from .utils import *
 from .serializers import *
-from .decorators import ticketcreationalert, commentcreationalert
+from .decorators import ticketcreationalert, commentcreationalert, ticketupdatealert
 # Create your views here.
 
 
@@ -67,6 +67,7 @@ def createTicket(request, pk):
 
 
 @api_view(["PUT"])
+@ticketupdatealert
 def updateTicket(request, pk):
     try:
         ticket = Ticket.objects.get(id = pk)

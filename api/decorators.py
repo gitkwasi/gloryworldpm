@@ -24,6 +24,26 @@ def ticketcreationalert(viewfunc):
     return wrapper_func
 
 
+def ticketupdatealert(viewfunc):
+    def wrapper_func(request, pk, *args, **kwargs):
+        ticket = Ticket.objects.get(id = pk)
+        assignee = ticket.assignee
+        status = request.data['status']
+
+        send_mail(
+            f"The task : {ticket.title} has been updated ",
+            f"It has been moved to : {status}",
+            None,
+            [str(assignee)],
+            fail_silently= False,
+
+        )
+
+        return viewfunc(request, pk, *args, **kwargs)
+
+    return wrapper_func
+
+
 def commentcreationalert(viewfunc):
     def wrapper_func(request,pk, *args, **kwargs):
         
