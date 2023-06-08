@@ -119,7 +119,6 @@ def createComment(request, pk):
 
 
 @api_view(['GET'])
-
 def getComments(request,pk):
     
     ticket = Ticket.objects.get(id= pk)

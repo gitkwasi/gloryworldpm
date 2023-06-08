@@ -5,7 +5,7 @@ from .models import *
 class UserListingField(serializers.RelatedField):
     
     def to_representation(self, value):
-        return value.first_name
+        return [value.first_name,value.last_name, value.color]
 
 
 
@@ -19,6 +19,7 @@ class UserSerializer(serializers.ModelSerializer):
 class TicketSerializer(serializers.ModelSerializer):
     
     reporter = UserListingField(many = False, read_only = True)
+    assignee = UserListingField(many = False, read_only = True)
     
     class Meta:
         model = Ticket

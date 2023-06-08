@@ -44,7 +44,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     department = models.CharField(max_length=200, null=True)
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=True)
-
+    color = models.CharField(null=True, max_length = 50)
     objects  = UserAccountManager()
 
 
