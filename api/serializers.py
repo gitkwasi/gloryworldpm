@@ -8,7 +8,9 @@ class UserListingField(serializers.RelatedField):
         return {"first_name":value.first_name, "last_name":value.last_name,"color": value.color}
 
 
-
+class CommentUserListingField(serializers.RelatedField):
+    def to_representation(self, value):
+        return value.firstname
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
@@ -39,7 +41,7 @@ class TicketSerializer(serializers.ModelSerializer):
 
 
 class CommentSerializer(serializers.ModelSerializer):
-    user = UserListingField(many = False, read_only = True)
+    user = CommentUserListingField(many = False, read_only = True)
     
     class Meta:
         model = Comments
