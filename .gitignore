@@ -26,6 +26,7 @@ pmtool/
 
 # Distribution / packaging
 .Python
+api
 build/
 develop-eggs/
 dist/

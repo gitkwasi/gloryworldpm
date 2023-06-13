@@ -5,7 +5,7 @@ from .models import *
 class UserListingField(serializers.RelatedField):
     
     def to_representation(self, value):
-        return [value.first_name,value.last_name, value.color]
+        return {"first_name":value.first_name, "last_name":value.last_name,"color": value.color}
 
 
 
