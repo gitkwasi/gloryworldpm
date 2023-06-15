@@ -5,12 +5,12 @@ from .models import *
 class UserListingField(serializers.RelatedField):
     
     def to_representation(self, value):
-        return {"first_name":value.first_name, "last_name":value.last_name,"color": value.color}
+        return {"first_name":value.first_name,"last_name":value.last_name,"color":value.color}
 
 
 class CommentUserListingField(serializers.RelatedField):
     def to_representation(self, value):
-        return value.firstname
+        return value.first_name
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
